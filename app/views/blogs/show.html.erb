@@ -1,0 +1,23 @@
+<div class="new">
+  <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+
+<p id="notice"><%= notice %></p>
+  <td> <%= image_tag @blog.file.url, class: "img-responsive" %></td>
+<td><%= link_to "Download file", @blog.file_url  %></td>
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blog.description %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+</div>
+</div>
+</div>

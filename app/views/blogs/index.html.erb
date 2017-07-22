@@ -1,0 +1,43 @@
+
+  <div class="new">
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2">
+
+          <p id="notice"><%= notice %></p>
+
+          <h1>Blogs</h1>
+          <div class="table-responsive">
+          <table  class="table table-hover">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Download</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @blogs.each do |blog| %>
+                <tr>
+
+                  <td> <%= image_tag blog.file.url, class: "img-responsive img-thumbnail blog-image" %></td>
+
+                <td><%=  link_to "download", blog.file_url %></td>
+                  <td><%= blog.title %></td>
+                  <td><%= truncate(blog.description, length: 30) %></td>
+                  <td><%= link_to 'Show', blog %></td>
+
+                  <% if user_signed_in? %>
+                  <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+                  <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        </div>
+    </div>
+</div>
